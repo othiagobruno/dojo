@@ -6,8 +6,8 @@ class UserController {
   async store({ request, response, auth }) {
     try {
       const data = request.only(["email", "password"]);
-      // const { token } = await auth.attempt({ data });
-      return response.status(201).send(data);
+      const user = User.create(data);
+      return user;
     } catch (error) {
       return response
         .status(error.status)

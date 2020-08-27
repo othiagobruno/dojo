@@ -20,6 +20,6 @@ Route.get("/", () => {
   return { greeting: "Hello world in JSON" };
 });
 
-Route.post("users/sessions", "SessionsController.store");
+Route.post("users/sessions", "SessionController.store");
 Route.post("users/register", "UserController.store").validator("UserStore");
 Route.get("users", "UserController").middleware(["auth"]);
